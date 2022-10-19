@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/suman-saurabh-das/stepper__assignment/static/css/main.31d6cfe0.css",
+    "main.js": "/suman-saurabh-das/stepper__assignment/static/js/main.f5c90889.js",
+    "static/js/787.0cb98c7b.chunk.js": "/suman-saurabh-das/stepper__assignment/static/js/787.0cb98c7b.chunk.js",
+    "index.html": "/suman-saurabh-das/stepper__assignment/index.html",
+    "main.f5c90889.js.map": "/suman-saurabh-das/stepper__assignment/static/js/main.f5c90889.js.map",
+    "787.0cb98c7b.chunk.js.map": "/suman-saurabh-das/stepper__assignment/static/js/787.0cb98c7b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.31d6cfe0.css",
+    "static/js/main.f5c90889.js"
+  ]
+}
