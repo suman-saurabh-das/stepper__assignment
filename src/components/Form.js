@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import PersonalInfo from './PersonalInfo';
 import EducationalInfo from './EducationalInfo';
 import Address from './Address';
+import StepperProgressBar from './StepperProgressBar';
+import UserResponse from './UserResponse';
 
 function Form() {
     // state variable to store the page information
@@ -14,9 +16,12 @@ function Form() {
         phone: '',
         qualification: '',
         trade: '',
-        marks: 0,
+        marks: '',
         address: ''
     })
+
+    // state variable to toggle visibiltiy of UserResponse
+    const [visibility, setVisibility] = useState(false)
 
     // form headings array (will be displayed based on the page index)
     const formTitles = ['Enter Personal Details', 'Enter Educational Details', 'Enter Address'];
@@ -33,16 +38,18 @@ function Form() {
     }
 
     return (
-        <main className='form bg-white p-10'>
-            <section className='space-y-5'>
+        <main className={`form bg-cyan-100 font-semibold font-mono p-10 relative rounded-md shadow-lg shadow-gray-500 -right-1/2 -translate-x-1/2 translate-y-1/4 w-1/3`}>
+            <section className={visibility ? 'hidden' : ''}>
+
                 {/* Stepper Progress bar */}
-                <div page={page}>{page + 1}</div>
+                <StepperProgressBar page={page}/>
+                
                 {/* Form Component Container */}
                 <div className='form-container'>
 
                     {/* Form Headings  */}
                     <div className='header'>
-                        <h1>{formTitles[page]}</h1>
+                        <h1 className='text-cyan-900 text-2xl'>{formTitles[page]}</h1>
                     </div>
 
                     {/* Form Body */}
@@ -51,8 +58,8 @@ function Form() {
                     </div>
 
                     {/* Form Navigation */}
-                    <div className="footer flex justify-between">
-                        <button
+                    <div className="footer flex justify-between text-cyan-900">
+                        <button className='bg-cyan-300 duration-200 hover:bg-cyan-400 cursor-pointer px-6 py-2 rounded-lg shadow-inner shadow-cyan-600'
                             disabled={page === 0}
                             onClick={() => {
                                 setPage((currentPage) => (currentPage - 1))
@@ -60,12 +67,12 @@ function Form() {
                         >
                             Back
                         </button>
-                        <button
+                        <button className='bg-cyan-300 duration-200 hover:bg-cyan-400 cursor-pointer px-6 py-2 rounded-lg shadow-inner shadow-cyan-600'
                             // disabled={page === formTitles.length - 1}
                             onClick={() => {
                                 if (page === formTitles.length - 1) {
-                                    alert('Data submitted')
-                                    console.log(formData)
+                                    // console.log(formData)
+                                    setVisibility(true)
                                 } else {
                                     setPage((currentPage) => (currentPage + 1))
                                 }
@@ -75,6 +82,9 @@ function Form() {
                         </button>
                     </div>
                 </div>
+            </section>
+            <section className='h-full'>
+                <UserResponse visibility={visibility} formData={formData} />
             </section>
         </main>
     )

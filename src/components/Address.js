@@ -2,8 +2,9 @@ import React from 'react'
 
 function Address({formData, setFormData}) {
   return (
-    <div className='flex p-10 space-y-5'>
-      Address: <textarea name="" id="" cols="30" rows="5"
+    <div className='py-9'>
+      <textarea className='outline-none px-3 py-2 rounded-md shadow-inner shadow-gray-200 w-full'
+        name="" id="" cols="30" rows="6" placeholder='Address'
         value={formData.address}
         onChange={(event) => setFormData({...formData, address: event.target.value})}
       ></textarea>
